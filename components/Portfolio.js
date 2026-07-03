@@ -3,12 +3,11 @@
 import { useState, useEffect, useRef } from "react";
 import {
   ArrowUpRight,
-  Github,
   Linkedin,
   Mail,
   Terminal,
-  Database,
-  Layers,
+  Search,
+  FileText,
   Radio,
   MapPin,
 } from "lucide-react";
@@ -38,17 +37,17 @@ const PROJECTS = [
     year: "2025 — en curso",
     stack: ["Next.js 14", "Supabase", "TypeScript", "Realtime"],
     description:
-      "Sistema de gestión para un estudio contable: seguimiento de trámites multi-cliente, seguimiento de estados, responsables por trámites, búsqueda global, notificaciones y sincronización en tiempo real.",
-    accent: "#3D7FFF",
+      "Sistema de gestión para un estudio contable: seguimiento de trámites multi-cliente, estados, responsables por trámite, búsqueda global, notificaciones y sincronización en tiempo real.",
+    accent: "#4C87FF",
   },
   {
     id: "02",
-    name: "Aplicacion en Power App",
-    category: "Aplicacion para registro de productos con EAN/Código de barras",
+    name: "Aplicación en Power Apps",
+    category: "Registro de productos con EAN / código de barras",
     year: "2026",
-    stack: ["Power Automate", "Power APP"],
+    stack: ["Power Automate", "Power Apps", "SharePoint"],
     description:
-      "Adaptable a equipos Hand Hell y celulares. Sincornización con sharepoint con resumen de registros. Base de datos en la nube",
+      "Adaptable a equipos Hand Held y celulares. Sincronización con SharePoint con resumen de registros. Base de datos en la nube.",
     accent: "#6E8CFF",
   },
   {
@@ -57,8 +56,7 @@ const PROJECTS = [
     category: "Trabajando",
     year: "2026",
     stack: ["XX", "XX", "XX"],
-    description:
-      "Proyecto en proceso",
+    description: "Proyecto en proceso.",
     accent: "#9AB2FF",
   },
 ];
@@ -66,23 +64,23 @@ const PROJECTS = [
 const PRINCIPLES = [
   {
     icon: Radio,
-    title: "Tiempo real, con red de contención",
-    text: "Sincronización en vivo con un fallback de sondeo, para que nada se quede colgado si el canal falla.",
+    title: "Tiempo real en producción, con red de contención",
+    text: "Estados, trámites y comentarios se sincronizan al instante para todo el equipo, con un sondeo cada 15 segundos como respaldo si el canal se corta.",
   },
   {
-    icon: Database,
-    title: "Consultas pensadas para producción",
-    text: "Cada acceso a datos se diseña para escalar sin romperse en el entorno donde va a vivir de verdad.",
+    icon: Search,
+    title: "Búsqueda global con un atajo de teclado",
+    text: "Ctrl+K abre un buscador que cruza clientes y trámites al instante, con la ficha del cliente a un clic de distancia.",
   },
   {
-    icon: Layers,
-    title: "Servidor y cliente, separados a propósito",
-    text: "Cada pieza corre donde tiene que correr. Menos sorpresas, más control.",
+    icon: FileText,
+    title: "Archivos adjuntos con acceso controlado",
+    text: "Documentos y comprobantes se suben a un storage privado, con URLs firmadas y vista previa de PDFs e imágenes.",
   },
 ];
 
 const PROJECT_TYPES = ["Sistema interno", "Sitio web", "Automatización", "Otro"];
-const SCOPES = ["Uso INTERNO", "Uso para CLIENTES"];
+const SCOPES = ["Uso interno", "Uso para clientes"];
 
 export default function Portfolio() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
@@ -115,15 +113,16 @@ export default function Portfolio() {
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
         .tp-root {
-          --bg: #0A0B0D;
-          --panel: #131519;
-          --panel-2: #17191F;
-          --line: #24262C;
-          --platinum: #E8E9EB;
-          --steel: #8B8F97;
-          --accent: #3D7FFF;
+          --bg: #0D0F13;
+          --bg-2: #10131A;
+          --panel: #171A21;
+          --panel-2: #1D2028;
+          --line: #2E323C;
+          --platinum: #EDEEF0;
+          --steel: #9CA0AA;
+          --accent: #4C87FF;
           position: relative;
-          background: var(--bg);
+          background: radial-gradient(ellipse 900px 600px at 85% 0%, rgba(76,135,255,0.10), transparent 60%), var(--bg);
           color: var(--platinum);
           font-family: 'Inter', sans-serif;
           min-height: 100vh;
@@ -201,9 +200,9 @@ export default function Portfolio() {
           animation: tp-pulse 2.2s infinite;
         }
         @keyframes tp-pulse {
-          0% { box-shadow: 0 0 0 0 rgba(61,127,255,0.45); }
-          70% { box-shadow: 0 0 0 8px rgba(61,127,255,0); }
-          100% { box-shadow: 0 0 0 0 rgba(61,127,255,0); }
+          0% { box-shadow: 0 0 0 0 rgba(76,135,255,0.45); }
+          70% { box-shadow: 0 0 0 8px rgba(76,135,255,0); }
+          100% { box-shadow: 0 0 0 0 rgba(76,135,255,0); }
         }
 
         .tp-project-row {
@@ -225,11 +224,11 @@ export default function Portfolio() {
 
       <div className="tp-reticle hidden md:block" style={{ left: mouse.x, top: mouse.y }}>
         <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
-          <path d="M13 0V8" stroke="#3D7FFF" strokeWidth="1" opacity="0.8" />
-          <path d="M13 18V26" stroke="#3D7FFF" strokeWidth="1" opacity="0.8" />
-          <path d="M0 13H8" stroke="#3D7FFF" strokeWidth="1" opacity="0.8" />
-          <path d="M18 13H26" stroke="#3D7FFF" strokeWidth="1" opacity="0.8" />
-          <circle cx="13" cy="13" r="2" fill="#3D7FFF" />
+          <path d="M13 0V8" stroke="#4C87FF" strokeWidth="1" opacity="0.8" />
+          <path d="M13 18V26" stroke="#4C87FF" strokeWidth="1" opacity="0.8" />
+          <path d="M0 13H8" stroke="#4C87FF" strokeWidth="1" opacity="0.8" />
+          <path d="M18 13H26" stroke="#4C87FF" strokeWidth="1" opacity="0.8" />
+          <circle cx="13" cy="13" r="2" fill="#4C87FF" />
         </svg>
       </div>
       <div
@@ -239,7 +238,7 @@ export default function Portfolio() {
           left: mouse.x + 16,
           top: mouse.y + 12,
           fontSize: "10px",
-          color: "#8B8F97",
+          color: "#9CA0AA",
           pointerEvents: "none",
           zIndex: 40,
           whiteSpace: "nowrap",
@@ -249,58 +248,66 @@ export default function Portfolio() {
         {String(Math.round(mouse.y)).padStart(4, "0")}
       </div>
 
-      <nav className="relative z-30 flex items-center justify-between px-6 md:px-12 py-6 border-b tp-border">
-        <span className="tp-display font-semibold text-lg tracking-tight">
-          N<span className="tp-text-accent">.</span>
-        </span>
-        <div className="tp-mono hidden md:flex gap-8 text-xs tp-text-steel">
-          <a href="#trabajo" className="tp-underline hover:text-[var(--platinum)]">TRABAJO</a>
-          <a href="#sistema" className="tp-underline hover:text-[var(--platinum)]">ENFOQUE</a>
-          <a href="#contacto" className="tp-underline hover:text-[var(--platinum)]">CONTACTO</a>
-        </div>
-        <div className="tp-mono flex items-center gap-2 text-xs tp-text-steel">
-          <span className="w-1.5 h-1.5 rounded-full tp-bg-accent tp-pulse" />
-          DISPONIBLE
+      <nav className="relative z-30 border-b tp-border">
+        <div className="flex items-center justify-between px-6 md:px-12 py-6 max-w-7xl mx-auto">
+          <span className="tp-display font-semibold text-lg tracking-tight">
+            N<span className="tp-text-accent">.</span>
+          </span>
+          <div className="tp-mono hidden md:flex gap-8 text-xs tp-text-steel">
+            <a href="#trabajo" className="tp-underline hover:text-[var(--platinum)]">TRABAJO</a>
+            <a href="#sistema" className="tp-underline hover:text-[var(--platinum)]">ENFOQUE</a>
+            <a href="#contacto" className="tp-underline hover:text-[var(--platinum)]">CONTACTO</a>
+          </div>
+          <div className="tp-mono flex items-center gap-2 text-xs tp-text-steel">
+            <span className="w-1.5 h-1.5 rounded-full tp-bg-accent tp-pulse" />
+            DISPONIBLE
+          </div>
         </div>
       </nav>
 
-      <section className="relative z-10 px-6 md:px-12 pt-20 pb-24 md:pt-28 md:pb-32 max-w-6xl">
-        <div className={`tp-fade ${loaded ? "tp-in" : ""} tp-mono flex items-center gap-2 text-xs tp-text-steel mb-8`}>
-          <MapPin size={12} />
-          {PROFILE.role.toUpperCase()} — {PROFILE.location.toUpperCase()}
+      <section className="relative z-10 px-6 md:px-12 pt-20 pb-24 md:pt-28 md:pb-32 max-w-7xl mx-auto grid md:grid-cols-[1.3fr_1fr] gap-16 items-center">
+        <div>
+          <div className={`tp-fade ${loaded ? "tp-in" : ""} tp-mono flex items-center gap-2 text-xs tp-text-steel mb-8`}>
+            <MapPin size={12} />
+            {PROFILE.role.toUpperCase()} — {PROFILE.location.toUpperCase()}
+          </div>
+
+          <h1
+            className={`tp-fade ${loaded ? "tp-in" : ""} tp-display font-semibold leading-[0.95] tracking-tight text-4xl sm:text-5xl md:text-6xl lg:text-7xl`}
+            style={{ transitionDelay: "80ms" }}
+          >
+            Construyo sistemas
+            <br />
+            para negocios que <span className="tp-text-accent">no pueden fallar.</span>
+          </h1>
+
+          <p
+            className={`tp-fade ${loaded ? "tp-in" : ""} tp-text-steel text-base md:text-lg max-w-xl mt-8 leading-relaxed`}
+            style={{ transitionDelay: "160ms" }}
+          >
+            Diseño y desarrollo paneles internos, CRMs y herramientas a medida
+            para empresas que necesitan orden, no otra plantilla genérica.
+          </p>
+
+          <div
+            className={`tp-fade ${loaded ? "tp-in" : ""} mt-12 flex items-center gap-6 flex-wrap`}
+            style={{ transitionDelay: "240ms" }}
+          >
+            <MagneticButton href="#trabajo">
+              VER TRABAJO <ArrowUpRight size={16} />
+            </MagneticButton>
+            <a href="#contacto" className="tp-mono tp-underline text-xs tp-text-steel hover:text-[var(--platinum)]">
+              Iniciar un proyecto
+            </a>
+          </div>
         </div>
 
-        <h1
-          className={`tp-fade ${loaded ? "tp-in" : ""} tp-display font-semibold leading-[0.95] tracking-tight text-4xl sm:text-5xl md:text-7xl`}
-          style={{ transitionDelay: "80ms" }}
-        >
-          Construyo sistemas
-          <br />
-          para negocios que <span className="tp-text-accent">no pueden fallar.</span>
-        </h1>
-
-        <p
-          className={`tp-fade ${loaded ? "tp-in" : ""} tp-text-steel text-base md:text-lg max-w-xl mt-8 leading-relaxed`}
-          style={{ transitionDelay: "160ms" }}
-        >
-          Diseño y desarrollo paneles internos, CRMs y herramientas a medida
-          para empresas que necesitan orden, no otra plantilla genérica.
-        </p>
-
-        <div
-          className={`tp-fade ${loaded ? "tp-in" : ""} mt-12 flex items-center gap-6 flex-wrap`}
-          style={{ transitionDelay: "240ms" }}
-        >
-          <MagneticButton href="#trabajo">
-            VER TRABAJO <ArrowUpRight size={16} />
-          </MagneticButton>
-          <a href="#contacto" className="tp-mono tp-underline text-xs tp-text-steel hover:text-[var(--platinum)]">
-            Iniciar un proyecto
-          </a>
+        <div className={`tp-fade ${loaded ? "tp-in" : ""} hidden md:block`} style={{ transitionDelay: "200ms" }}>
+          <HeroStatusPanel />
         </div>
       </section>
 
-      <section id="sistema" className="relative z-10 px-6 md:px-12 pb-24 max-w-6xl">
+      <section id="sistema" className="relative z-10 px-6 md:px-12 pb-24 max-w-7xl mx-auto">
         <SectionLabel index="01" title="Enfoque" />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
@@ -308,11 +315,12 @@ export default function Portfolio() {
             <div>
               <Terminal size={20} className="tp-text-accent mb-6" />
               <p className="tp-display text-xl md:text-2xl leading-snug">
-                Entrego proyectos totalmente adaptados a tus NECESIDADES.
+                Entrego proyectos totalmente adaptados a tus necesidades.
               </p>
             </div>
             <p className="tp-text-steel text-sm mt-8 max-w-md">
-              Cada proyecto arranca entendiendo quién lo usa, y que resultados se buscan.
+              Cada proyecto arranca entendiendo quién lo usa y qué resultados busca,
+              no qué tecnología queda mejor en el portfolio.
             </p>
           </FrameCard>
 
@@ -326,7 +334,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <section id="trabajo" className="relative z-10 px-6 md:px-12 pb-24 max-w-6xl">
+      <section id="trabajo" className="relative z-10 px-6 md:px-12 pb-24 max-w-7xl mx-auto">
         <SectionLabel index="02" title="Trabajo" />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 items-start">
@@ -351,7 +359,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <section id="contacto" className="relative z-10 px-6 md:px-12 pb-28 max-w-6xl">
+      <section id="contacto" className="relative z-10 px-6 md:px-12 pb-28 max-w-7xl mx-auto">
         <SectionLabel index="03" title="Acceso" />
 
         <div className="tp-frame relative border tp-border mt-8 p-8 md:p-14">
@@ -420,22 +428,63 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <footer className="relative z-10 px-6 md:px-12 py-8 border-t tp-border flex flex-col md:flex-row items-center justify-between gap-4">
-        <span className="tp-mono text-xs tp-text-steel">
-          © {new Date().getFullYear()} {PROFILE.name} — TODOS LOS DERECHOS RESERVADOS
-        </span>
-        <div className="flex items-center gap-5">
-          <a href={PROFILE.github} className="tp-text-steel hover:text-[var(--platinum)] transition-colors">
-            <Github size={16} />
-          </a>
-          <a href={PROFILE.linkedin} className="tp-text-steel hover:text-[var(--platinum)] transition-colors">
-            <Linkedin size={16} />
-          </a>
-          <a href={`mailto:${PROFILE.email}`} className="tp-text-steel hover:text-[var(--platinum)] transition-colors">
-            <Mail size={16} />
-          </a>
+      <footer className="relative z-10 border-t tp-border">
+        <div className="px-6 md:px-12 py-8 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+          <span className="tp-mono text-xs tp-text-steel">
+            © {new Date().getFullYear()} {PROFILE.name} — TODOS LOS DERECHOS RESERVADOS
+          </span>
+          <div className="flex items-center gap-5">
+            <a href={PROFILE.linkedin} className="tp-text-steel hover:text-[var(--platinum)] transition-colors">
+              <Linkedin size={16} />
+            </a>
+            <a href={`mailto:${PROFILE.email}`} className="tp-text-steel hover:text-[var(--platinum)] transition-colors">
+              <Mail size={16} />
+            </a>
+          </div>
         </div>
       </footer>
+    </div>
+  );
+}
+
+function HeroStatusPanel() {
+  const rows = [
+    { label: "ENTORNO", value: "100% online — GitHub + Vercel" },
+    { label: "STACK", value: "Next.js · Supabase · TypeScript" },
+    { label: "EN PRODUCCIÓN", value: "CRM Estudio Grimalt" },
+  ];
+
+  return (
+    <div className="tp-frame relative border tp-border p-6" style={{ background: "var(--panel)" }}>
+      <span className="tp-corner tp-corner-tl" />
+      <span className="tp-corner tp-corner-tr" />
+      <span className="tp-corner tp-corner-bl" />
+      <span className="tp-corner tp-corner-br" />
+
+      <div className="flex items-center justify-between mb-6">
+        <p className="tp-mono text-xs tp-text-steel">SISTEMA — STATUS</p>
+        <span className="w-1.5 h-1.5 rounded-full tp-bg-accent tp-pulse" />
+      </div>
+
+      <div className="w-full h-24 border tp-border mb-6 relative overflow-hidden" style={{ background: "var(--panel-2)" }}>
+        <div className="absolute inset-0 grid grid-cols-8 grid-rows-3">
+          {Array.from({ length: 24 }).map((_, i) => (
+            <div key={i} className="border tp-border" style={{ borderWidth: "0.5px", opacity: 0.35 }} />
+          ))}
+        </div>
+        <div className="absolute top-3 left-3 w-2/5 h-2.5 rounded-sm" style={{ background: "var(--accent)", opacity: 0.8 }} />
+        <div className="absolute top-3 right-3 w-1/5 h-2.5 rounded-sm" style={{ background: "var(--accent)", opacity: 0.3 }} />
+        <div className="absolute bottom-3 left-3 right-3 h-8 rounded-sm" style={{ background: "var(--accent)", opacity: 0.12 }} />
+      </div>
+
+      <div className="tp-mono space-y-3">
+        {rows.map((r) => (
+          <div key={r.label} className="flex items-baseline justify-between gap-4 pb-3 border-b tp-border last:border-b-0 last:pb-0">
+            <span className="text-[10px] tp-text-steel">{r.label}</span>
+            <span className="text-xs text-right">{r.value}</span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

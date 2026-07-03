@@ -22,12 +22,11 @@ import {
 
 // EDITAR: tus datos personales
 const PROFILE = {
-  name: "Nicolás",
+  name: "Nicolás Muñoz",
   role: "Desarrollador Full-Stack",
-  location: "Buenos Aires, AR",
-  email: "nicolas@tudominio.com",
-  github: "https://github.com/tu-usuario",
-  linkedin: "https://linkedin.com/in/tu-usuario",
+  location: "Córdoba, AR",
+  email: "nicolas_munoz@hotmail.com.ar",
+  linkedin: "https://linkedin.com/in/nicolas-munoz-cba",
 };
 
 // EDITAR: tus proyectos reales
@@ -35,31 +34,31 @@ const PROJECTS = [
   {
     id: "01",
     name: "CRM Estudio Grimalt",
-    category: "Sistema de gestión interno",
+    category: "Sistema de gestión contable interno",
     year: "2025 — en curso",
     stack: ["Next.js 14", "Supabase", "TypeScript", "Realtime"],
     description:
-      "Sistema de gestión para un estudio contable de 8 usuarios: trámites multi-cliente, búsqueda global, notificaciones y sincronización en tiempo real.",
+      "Sistema de gestión para un estudio contable: seguimiento de trámites multi-cliente, seguimiento de estados, responsables por trámites, búsqueda global, notificaciones y sincronización en tiempo real.",
     accent: "#3D7FFF",
   },
   {
     id: "02",
-    name: "Panel de Turnos",
-    category: "Automatización de agenda",
-    year: "Placeholder",
-    stack: ["Next.js", "PostgreSQL", "Cron"],
+    name: "Aplicacion en Power App",
+    category: "Aplicacion para registro de productos con EAN/Código de barras",
+    year: "2026",
+    stack: ["Power Automate", "Power APP"],
     description:
-      "Reemplazá este bloque con tu próximo proyecto: reservas, confirmaciones automáticas y panel de administración.",
+      "Adaptable a equipos Hand Hell y celulares. Sincornización con sharepoint con resumen de registros. Base de datos en la nube",
     accent: "#6E8CFF",
   },
   {
     id: "03",
-    name: "Portal de Clientes",
-    category: "Sitio + acceso privado",
-    year: "Placeholder",
-    stack: ["React", "Auth", "Storage"],
+    name: "En proceso...",
+    category: "Trabajando",
+    year: "2026",
+    stack: ["XX", "XX", "XX"],
     description:
-      "Otro espacio para tu próximo caso: portal de acceso, documentos y seguimiento para clientes finales.",
+      "Proyecto en proceso",
     accent: "#9AB2FF",
   },
 ];
@@ -83,7 +82,7 @@ const PRINCIPLES = [
 ];
 
 const PROJECT_TYPES = ["Sistema interno", "Sitio web", "Automatización", "Otro"];
-const SCOPES = ["Piloto", "Estándar", "Enterprise", "A definir"];
+const SCOPES = ["Uso INTERNO", "Uso para CLIENTES"];
 
 export default function Portfolio() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
@@ -309,13 +308,11 @@ export default function Portfolio() {
             <div>
               <Terminal size={20} className="tp-text-accent mb-6" />
               <p className="tp-display text-xl md:text-2xl leading-snug">
-                No entrego una web más. Entrego el sistema que sostiene la
-                operación del día a día de tu equipo.
+                Entrego proyectos totalmente adaptados a tus NECESIDADES.
               </p>
             </div>
             <p className="tp-text-steel text-sm mt-8 max-w-md">
-              Cada proyecto arranca entendiendo quién lo usa, no qué tecnología
-              queda mejor en el portfolio.
+              Cada proyecto arranca entendiendo quién lo usa, y que resultados se buscan.
             </p>
           </FrameCard>
 
